@@ -6,6 +6,7 @@ This is a simple translation microservice built using the Quart framework and Go
 - Translate text from a source language to a destination language.
 - Auto-detect the source language if not specified.
 - Specify the destination language via request headers.
+- **Note:** Translation quality for slang or informal language depends on the capabilities of the underlying Google Translate service.
 
 ## Requirements
 - Python 3.7+

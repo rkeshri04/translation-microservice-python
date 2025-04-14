@@ -15,9 +15,13 @@ async def translate():
         return jsonify({'error': 'Text to translate is required'}), 400
 
     try:
+        # Directly await the asynchronous translate function
         translation = await translator.translate(text, src=src, dest=dest)
+        # Log more details from the translation object
+        print(f"Translation result: text='{translation.text}', detected_src='{translation.src}', origin='{translation.origin}'")
         return jsonify({
             'text': translation.text,
+            'detected_source_language': translation.src  # Add detected source language to response
         })
     except Exception as e:
         return jsonify({'error': str(e)}), 500
